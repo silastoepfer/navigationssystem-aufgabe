@@ -40,8 +40,8 @@ export class NavWrapperComponent implements OnInit {
     //subscribe to the route data and
     this.route.params.subscribe((params) => {
       // set active route from route to render component
-      // default to A if no parameter is passed
-      this.activeRoute = params["route"] ? params["route"] : 'a';
+      // default to first item if no parameter is passed
+      this.activeRoute = params["route"] ? params["route"] : this.items[0].route;
       // set the index of the navigation (0-N) to check routing options
       this.navIndex = this.items.map(object => object.route).indexOf(this.activeRoute)
       // check routing options
