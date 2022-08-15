@@ -1,0 +1,19 @@
+<!--
+- use ngSwitch for component rendering and add default case for not yet created components
+- another option would be to create components on the fly by using a factory, but I didnt know if this would be part of the exercise since the 4 components already exist
+NOTE: Since all the components contain the same data and structure, it might be a better approach to write one unified component and pass down the data through data binding or content projection
+
+-->
+<div [ngSwitch]="activeRoute">
+  <app-a *ngSwitchCase="'a'"></app-a>
+  <app-b *ngSwitchCase="'b'"></app-b>
+  <app-c *ngSwitchCase="'c'"></app-c>
+  <app-d *ngSwitchCase="'d'"></app-d>
+  <app-not-found [title]="activeRoute" *ngSwitchDefault>
+    Für dieses Element liegen noch keine Daten vor.
+  </app-not-found>
+</div>
+<div class="button-wrapper">
+  <button mat-flat-button [disabled]="!preventBackward" (click)="onNavigateBack()">Zurück</button>
+  <button mat-flat-button [disabled]="!preventForward" (click)="onNavigateForward()">Vor</button>
+</div>
