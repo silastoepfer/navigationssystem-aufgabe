@@ -11,3 +11,6 @@
   position: relative;
 }
 
+.active-link {
+  opacity: 1;
+}

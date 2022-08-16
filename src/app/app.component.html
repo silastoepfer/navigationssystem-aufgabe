@@ -3,7 +3,13 @@
     <h1>Navigationssystem</h1>
 
     <nav mat-tab-nav-bar backgroundColor="primary">
-      <a *ngFor="let item of items; let i = index" mat-tab-link (click)="onDirectRoute(item?.route)">{{ item?.title }}</a>
+      <a
+        *ngFor="let item of items; let i = index"
+        mat-tab-link
+        [routerLink]="item?.route"
+        routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+        (click)="onDirectRoute(item?.route)"
+      >{{ item?.title }}</a>
     </nav>
   </div>
 
